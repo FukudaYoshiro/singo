@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Lyrics Scrolling</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #ffffff;
+        }
+        #container {
+            max-width: 600px;
+            height: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+
+        }
+        #lyrics {
+            position: relative;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 24px;
+            line-height: 36px;
+            overflow: auto;
+            -ms-overflow-style: none;
+            /* hide scrollbar on IE and Edge */
+            scrollbar-width: none;
+            width: 80%;
+            height: 700px;
+            transition: 1s ease;
+        }
+
+        #lyrics::-webkit-scrollbar {
+            display: none;
+            /* hide scrollbar on Chrome, Safari, and Opera */
+        }
+
+        .highlight {
+            color: #FF9800;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 10;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 0;
+        }
+
+        @media (min-width: 768px) {
+            #container {
+                max-width: 960px;
+            }
+
+            #lyrics {
+                top: 10%;
+                font-size: 2em;
+                line-height: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="lyrics">
+        </div>
+    </div>
+    <div id="controls">
+        <audio id="audioPlayer" src="sing.mp3" controls>
+            <track src="sing.srt" label="lyrics">
+        </audio>
+    </div>
+	<script src="sing.js"></script>
+</body>
+
+</html>
